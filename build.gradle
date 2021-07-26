@@ -7,7 +7,7 @@ buildscript {
         jcenter()
 //        TODO 必须更换为你自己的路径
         maven {
-            url 'file://C:/AndroidStudioProjects/AndroidAOP/traceplugin'
+            url 'file://Users/cc/Downloads/project/AndoridAop/traceplugin'
         }
     }
     dependencies {
