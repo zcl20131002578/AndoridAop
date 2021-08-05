@@ -3,7 +3,7 @@ apply plugin: 'kotlin'
 apply plugin: 'maven'
 
 dependencies {
-    compileOnly gradleApi()
+    implementation gradleApi()
     implementation localGroovy()
     implementation 'com.android.tools.build:gradle:3.4.1'
     implementation 'org.ow2.asm:asm:7.1'
