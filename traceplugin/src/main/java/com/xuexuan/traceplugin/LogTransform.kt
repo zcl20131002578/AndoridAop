@@ -272,7 +272,9 @@ class LogTransform : Transform() {
                     val classVisitor = TraceVisitor(className, classWriter)
                     classReader.accept(classVisitor, ClassReader.EXPAND_FRAMES)
                     val code = classWriter.toByteArray()
-                    val fos = FileOutputStream(file.parentFile.absoluteFile.toString() + File.separator + name)
+                    val path = file.parentFile.absoluteFile.toString() + File.separator + name
+                    println("====TracePlugin path end=====$path")
+                    val fos = FileOutputStream(path)
                     fos.write(code)
                     fos.close()
                 }
