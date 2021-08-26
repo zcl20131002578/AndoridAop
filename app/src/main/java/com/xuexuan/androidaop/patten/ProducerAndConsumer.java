@@ -8,6 +8,11 @@ import java.util.Queue;
  */
 public class ProducerAndConsumer {
 
+    /**
+     * notify Wakes up a single thread that is waiting on this object's monitor.
+     * wait   Causes the current thread to wait until another thread invokes the notify method for this object
+     */
+
     private final static int MAX_LEN = 10;
     private final Queue<Integer> queue = new LinkedList<>();
 
@@ -23,16 +28,18 @@ public class ProducerAndConsumer {
                         queue.notify();
                         System.out.println("当前队列满");
                         try {
+                            System.out.println("Producer call wait before");
                             queue.wait();
+                            System.out.println("Producer call wait after");
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            Thread.interrupted();
                         }
                     }
                     queue.add(1);
                     queue.notify();
                     System.out.println("生产者生产一条任务，当前队列长度为" + queue.size());
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -54,7 +61,7 @@ public class ProducerAndConsumer {
                         try {
                             queue.wait();
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            Thread.interrupted();
                         }
                     }
                     queue.poll();

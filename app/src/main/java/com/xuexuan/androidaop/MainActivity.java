@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.xuexuan.androidaop.patten.ProducerAndConsumer;
+
 import will.github.com.xuexuan.androidaop.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv_jump = findViewById(R.id.tv_jump);
 
         tv_jump.setOnClickListener(this);
+
     }
 
 
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
+        ProducerAndConsumer.main();
     }
 
     @Override
